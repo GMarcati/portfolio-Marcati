@@ -8,6 +8,7 @@
 body {
     /* background:#402222;*/
     background: #c6c6c6;
+
 }
 
 header{
@@ -19,7 +20,7 @@ header{
 }
 
 .wrapper{
-    width:90%;
+    width:100%;
     max-width:1000px;
     margin:auto;
     overflow:hidden;
@@ -27,11 +28,10 @@ header{
 
 header .logo {
     color: #fff;
-    font-size: 50px;
+    font-size: 30px;
     line-height: 100px;
     float: left;
 }
-
 header .sub {
     color: #fff;
     font-size: 10px;
@@ -111,3 +111,4 @@ contenido{
         line-height:50px;
     }
 }
+
