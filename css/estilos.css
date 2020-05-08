@@ -11,6 +11,12 @@ body {
 
 }
 
+.fondo {
+    background-image: url('../images/"portada.jpg');
+ 
+
+}
+
 header{
     width:100%;
     overflow:auto;
