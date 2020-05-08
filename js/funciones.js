@@ -1,23 +1,22 @@
+function valida(f) {
+    var ok = true;
+    var msg = "Falta llenar campos:\n";
+    if (f.elements[0].value == "") {
+        msg += "- Nombre \n";
+        ok = false;
+    }
 
+    if (f.elements["mail"].value == "") {
+        msg += "- Mail \n";
+        ok = false;
+    }
 
+    if (f.mensaje.value == "") {
+        msg += "- Mensaje \n";
+        ok = false;
+    }
 
-function validarMail() {
-
-    const email = document.getElementById("mailForm");
-    email.addEventListener("input", function (event) {
-
-        if (email.validity.typeMismatch) {
-            email.setCustomValidity("Estoy esperando una dirección de correo electrónico!");
-        } else {
-            email.setCustomValidity("");
-        }
-    });
-
-}
-
-
-function validar(){
-
-
-
+    if (ok == false)
+        alert(msg);
+    return ok;
 }
