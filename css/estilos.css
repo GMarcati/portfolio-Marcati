@@ -1,20 +1,11 @@
 *{margin:0; padding:0;}
 
 .tituloEspecial {
-    /*color: darkred;*/
     font-size: 20px;
 }
 
 body {
-    /* background:#402222;*/
     background: #c6c6c6;
-
-}
-
-.fondo {
-    background-image: url('../images/"portada.jpg');
- 
-
 }
 
 header{

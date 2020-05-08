@@ -1,12 +1,12 @@
 function valida(f) {
     var ok = true;
     var msg = "Falta llenar campos:\n";
-    if (f.elements[0].value == "") {
+    if (f.nombre.value == "") {
         msg += "- Nombre \n";
         ok = false;
     }
 
-    if (f.elements["mail"].value == "") {
+    if (f.mail.value == "") {
         msg += "- Mail \n";
         ok = false;
     }
