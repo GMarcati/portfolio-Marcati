@@ -1,6 +1,6 @@
 function valida(f) {
     var ok = true;
-    var msg = "Falta llenar campos:\n";
+    var msg = "Faltan llenar campos:\n";
     if (f.nombre.value == "") {
         msg += "- Nombre \n";
         ok = false;

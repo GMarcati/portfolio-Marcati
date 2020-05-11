@@ -1,18 +1,24 @@
 *{margin:0; padding:0;}
 
-.tituloEspecial {
-    font-size: 20px;
+* {font-family: 'Bitter'; font-size: 22px;}
+
+.margentitulo {
+    margin-top:3em;
 }
 
 body {
     background: #c6c6c6;
+    background-image: url("../images/fondo.jpg");
+    background-attachment: fixed;
+    background-size: 100% 100%;
 }
+
 
 header{
     width:100%;
     overflow:auto;
     background:#0c0b0b;
-    margin-bottom:20px;
+    margin-bottom:2em;
 
 }
 
@@ -21,6 +27,7 @@ header{
     max-width:1000px;
     margin:auto;
     overflow:hidden;
+    
 }
 
 header .logo {
@@ -86,7 +93,7 @@ contenido{
 
 .contenido p {
     
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
 }
 
 @media screen and (max-width: 950px){
@@ -109,7 +116,8 @@ contenido{
     }
 }
 
-.final{
-    margin-top:5em;
+.contacto{
+    margin-top:30em;
+    
 }
 
