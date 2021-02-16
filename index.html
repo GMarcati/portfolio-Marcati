@@ -19,13 +19,13 @@
             </div>
 
             <nav class="nav">
-                <a href="#section1">Inicio</a>
-                <a href="#miFormulario">Contacto</a>
+                <a href="#Inicio">Inicio</a>
+                <a href="#Form_Contacto">Contacto</a>
             </nav>
         </div>
     </header>
 
-    <section id="section1" class="contenido wrapper">
+    <section id="Inicio" class="contenido wrapper">
 
 
 
@@ -41,8 +41,8 @@
 
             2009 – 2014 | Instituto San Martin de Tours (San Fernando). Secundario Completo.<br />
             Inglés: Nivel Básico.<br />
-            Herramientas de informática: Word, Excel, Chrome, Outlook, Skype, Redes Sociales.<br />
-            19/05/2017 – Actualidad | Técnico Superior en Programación - UTN (C, C++, .NET, ADO .NET, ASP .NET, HTML, CSS, JAVASCRIPT, SQL)<br />
+            Herramientas de informática: Word, Excel, Chrome, Outlook, Skype, Redes Sociales, Trello, Slack, Microsoft Teams.<br />
+            19/05/2017 – Actualidad | Técnico Superior en Programación - UTN (C, C++, C#, .NET, ADO .NET, ASP .NET, HTML, CSS, JAVASCRIPT, SQL, MYSQL, JAVA, JAVA SERVLET, JAVA DATABASE CONNECTIVITY(JDBC), GitHub)<br />
         </p>
         <h3>Experiencia laboral:</h3>
         <p>
@@ -76,20 +76,93 @@
 
     <footer id="footer" class="contenido wrapper">
 
-        <form id="miFormulario" action="" method="get" onsubmit="return valida(this)" align="middle" class="contacto">
-            <h1>CONTACTO</h1> <br />
-            <p>
-                <input type="text" id="nombre" name="nombre" placeholder="Nombre">
-                <br />
-                <input type="email" id="mail" name="mail" placeholder="Mail">
-                <br />
-                <textarea type="text" id="mensaje" name="mensaje" placeholder="Mensaje" rows="5" cols="23"></textarea>
-                <br />
-                <input type="submit" value="Enviar" />
-            </p>
-        </form>
 
+
+        <form id="Form_Contacto" align="middle" class="contacto"> 
+            <h1>CONTACTO</h1> <br />
+            <input type="text" name="subject" placeholder="Asunto" />
+            <br />
+            <br />
+            <textarea name="text" placeholder="Mensaje"></textarea>
+            <br />
+            <input type="submit" id="js_send" value="Enviar" />
+            <br />
+            <br />
+            <!-- not required, but we'd appreciate it if you'd link to us somewhere on your site -->
+            <p>Powered by <a href="https://postmail.invotes.com" target="_blank">PostMail</a></p>
+        </form>
+        
+        
+	
     </footer>
+	
+    <script>
+
+                
+        //update this with your js_form selector
+        var form_id_js = "Form_Contacto";
+    
+        var data_js = {
+            "access_token": "w3rrwkguydhu1bdaym7z1lhr"
+        };
+    
+        function js_onSuccess() {
+            // remove this to avoid redirect
+            window.location = window.location.pathname + "?message=Email+Successfully+Sent%21&isError=0";
+        }
+    
+        function js_onError(error) {
+            // remove this to avoid redirect
+            window.location = window.location.pathname + "?message=Email+could+not+be+sent.&isError=1";
+        }
+    
+        var sendButton = document.getElementById("js_send");
+    
+        function js_send() {
+            sendButton.value='Sending…';
+            sendButton.disabled=true;
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function() {
+                if (request.readyState == 4 && request.status == 200) {
+                    js_onSuccess();
+                } else
+                if(request.readyState == 4) {
+                    js_onError(request.response);
+                }
+            };
+    
+            var subject = document.querySelector("#" + form_id_js + " [name='subject']").value;
+            var message = document.querySelector("#" + form_id_js + " [name='text']").value;
+            data_js['subject'] = subject;
+            data_js['text'] = message;
+            var params = toParams(data_js);
+    
+            request.open("POST", "https://postmail.invotes.com/send", true);
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    
+            request.send(params);
+    
+            return false;
+        }
+    
+        sendButton.onclick = js_send;
+    
+        function toParams(data_js) {
+            var form_data = [];
+            for ( var key in data_js ) {
+                form_data.push(encodeURIComponent(key) + "=" + encodeURIComponent(data_js[key]));
+            }
+    
+            return form_data.join("&");
+        }
+    
+        var js_form = document.getElementById(form_id_js);
+        js_form.addEventListener("submit", function (e) {
+            e.preventDefault();
+        });
+
+    </script>
+	
 
 </body>
 </html>
